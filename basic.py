@@ -1,3 +1,6 @@
+from math import log
+
+
 # two number input
 def two_num_input():
     a = input("Enter first number: ")
@@ -50,6 +53,19 @@ def remainder(a, b):
         return a % b
 
 
+# returns a^b
+def power(a, b):
+    return a ** b
+
+
+# returns logb(a)
+def logarithm(a, b):
+    try:
+        return log(a, b)
+    except ZeroDivisionError:
+        print("Can't divide by 0\n")
+
+
 # user interface
 def user_interface():
     while True:
@@ -59,6 +75,8 @@ def user_interface():
         print("3. Multiply")
         print("4. Divide")
         print("5. Remainder")
+        print("6. Exponent")
+        print("7. Logarithm")
 
         # user selection
         selection = input("Select function. ")
@@ -79,6 +97,10 @@ def user_interface():
                     answer = divide(a, b)
                 case "5":  # remainder
                     answer = remainder(a, b)
+                case "6":
+                    answer = power(a, b)
+                case "7":
+                    answer = logarithm(a, b)
                 case _:
                     print("Invalid selection.\n")
                     continue

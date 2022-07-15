@@ -13,7 +13,7 @@ def two_num_input():
         try:
             return float(a), float(b)
         except ValueError:  # invalid data types
-            print("Invalid input\n")
+            print("Invalid input.\n")
 
 
 # adds two numbers a and b
@@ -36,7 +36,7 @@ def divide(a, b):
     is_integer = isinstance(a, int) and isinstance(b, int)
 
     if b == 0:
-        return "Can't divide by 0"
+        return "Can't divide by 0."
     else:
         if is_integer and a % b == 0:
             return a // b  # will return an integer
@@ -48,7 +48,7 @@ def divide(a, b):
 # returns the remainder when a is divided by b
 def remainder(a, b):
     if b == 0:
-        return "Can't divide by 0"
+        return "Can't divide by 0."
     else:
         return a % b
 
@@ -63,7 +63,7 @@ def logarithm(a, b):
     try:
         return log(a, b)
     except ZeroDivisionError:
-        print("Can't divide by 0\n")
+        print("Can't divide by 0.\n")
 
 
 # user interface
@@ -86,26 +86,26 @@ def user_interface():
             a, b = two_num_input()
 
             # evaluate selection
-            match selection:
-                case "1":  # add
-                    answer = add(a, b)
-                case "2":  # subtract
-                    answer = subtract(a, b)
-                case "3":  # multiply
-                    answer = multiply(a, b)
-                case "4":  # divide
-                    answer = divide(a, b)
-                case "5":  # remainder
-                    answer = remainder(a, b)
-                case "6":
-                    answer = power(a, b)
-                case "7":
-                    answer = logarithm(a, b)
-                case _:
-                    print("Invalid selection.\n")
-                    continue
+            if selection == "1":  # add
+                answer = add(a, b)
+            elif selection == "2":  # subtract
+                answer = subtract(a, b)
+            elif selection == "3":  # multiply
+                answer = multiply(a, b)
+            elif selection == "4":  # divide
+                answer = divide(a, b)
+            elif selection == "5":  # remainder
+                answer = remainder(a, b)
+            elif selection == "6":  # power
+                answer = power(a, b)    
+            elif selection == "7":  # logarithm
+                answer = logarithm(a, b)
+            else:
+                print("Invalid selection.\n")
+                continue
 
-            print("Answer: {} ({:e})".format(answer, answer))  # print in scientific notation
+            # print in scientific notation
+            print("Answer: {} ({:e})".format(answer, answer))  
             break
 
         except TypeError:

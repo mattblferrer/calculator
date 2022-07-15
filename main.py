@@ -1,4 +1,5 @@
 import basic
+import trig
 
 
 # calculator user interface
@@ -6,16 +7,18 @@ def main():
     while True:
         # main menu
         print("1. Basic functions")
+        print("2. Trigonometric Functions")
 
         # dictionary for user selection
         selection = input("Select category. ")
 
         # evaluate selection
-        match selection:
-            case "1":
-                basic.user_interface()
-            case _:
-                print("Invalid selection.\n")
+        if selection == "1":
+            basic.user_interface()
+        elif selection == "2":
+            trig.user_interface()
+        else:
+            print("Invalid selection.\n")
 
         # restart
         while True:
@@ -28,6 +31,7 @@ def main():
             print("")
             continue
         else:
+            print("Thank you for using the calculator!\n")
             break
 
 
